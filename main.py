@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template,  jsonify
+from flask import Flask, request, render_template, jsonify
 
 from predict import predict
 
@@ -35,10 +35,10 @@ def test_nlp_models():
         print(task)
         output = predict(text, task)
 
-        return render_template('template_1.html',output=output)
+        return render_template('template_1.html', output=output)
 
     return render_template('template_1.html')
 
 
 if __name__ == '__main__':
-    app.run(host ="0.0.0.0",port=4000)
+    app.run(host="0.0.0.0", port=4000)
