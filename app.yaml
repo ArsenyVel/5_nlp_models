@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: 5-nlp-models-service
+spec:
+  type: NodePort
+  ports:
+    - nodePort: 31317
+      port: 4000
+      protocol: TCP
+      targetPort: 4000
+  selector:
+    app: nlp-app
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: 5-nlp-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nlp-app
+  template:
+    metadata:
+      labels:
+        app: nlp-app
+    spec:
+      containers:
+        - name: 5-models-app-container
+          image: 5_models_app:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 4000
