@@ -1,0 +1,30 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Form Example</title>
+</head>
+
+<body bgcolor="#CCFF66">
+<form action="/test_nlp_models" method="POST", style="text-align: center;">
+
+    <h3 style="color:#F00">Test  NLP models on different tasks</h3>
+
+    Type your text: <input type="text" name="text" id="text"><br><br>
+
+    <h3 style="color:#F00">Select task</h3>
+
+    Task: <select name="task" id="task">
+    <option selected>-- Select Model --</option>
+    <option>Sentiment Analysis</option>
+    <option>Language Detection</option>
+    <option>Spam Detection</option>
+    <option>Toxicity Classification</option>
+    <option>Fake News Classification</option>
+</select><br>
+    <button value="Submit">Run</button>
+</form>
+<p style="text-align: center;">{{ output }}</p>
+</body>
+</html>
